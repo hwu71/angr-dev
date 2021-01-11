@@ -21,6 +21,8 @@ git clone https://github.com/hwu71/angr.git
 git clone https://github.com/angr/ailment.git
 git clone https://github.com/angr/angr-doc.git
 git clone https://github.com/angr/binaries.git
+git clone https://github.com/hwu71/angr-utils.git
+git clone https://github.com/hwu71/bingraphvis.git
 
 set -e
 
@@ -29,12 +31,17 @@ pip install -e ./archinfo
 pip install -e ./pyvex
 pip install -e ./claripy
 pip install -e ./cle
-pip install -e ./angr
-
+pip install -e git+https://github.com/hwu71/angr@pdg#egg=angr
+pip install -e git+https://github.com/hwu71/angr-utils@dev#egg=angr-utils
+pip install -e git+https://github.com/hwu71/bingraphvis@dev#egg=bingraphvis
+pip install numpy
+pip install scipy
+sudo apt-get install graphviz
+pip install pydot
 ## END VERY COMPLICATED INSTALL PROCEDURE
 
 pip install nose ipython ipdb
-pip install -I --no-binary keystone-engine keystone-engine
+#pip install -I --no-binary keystone-engine keystone-engine
 
 set +e
 
